@@ -1,10 +1,10 @@
-# 🧩 Aplikasi Manajemen Tugas Mahasiswa
+#  Aplikasi Manajemen Tugas Mahasiswa
 > **Tugas Praktikum – Pemrograman Web (ITERA)**  
 > Oleh: **Jefri Wahyu Fernando Sembiring – 123140206 – RC**
 
 ---
 
-## 📘 Deskripsi Singkat
+##  Deskripsi Singkat
 Aplikasi **Manajemen Tugas Mahasiswa (MTM)** adalah aplikasi berbasis web yang dirancang untuk membantu mahasiswa mengatur dan memantau tugas akademik mereka.  
 Aplikasi ini bersifat **interaktif**, **fungsional**, dan menyimpan data secara **lokal (localStorage)** sehingga data tetap tersimpan walaupun browser ditutup.
 
@@ -15,7 +15,7 @@ Dibuat menggunakan:
 
 ---
 
-## ✅ Fitur Utama
+## Fitur Utama
 
 | No | Fitur | Status | Deskripsi |
 |:--:|:------|:------:|:----------|

@@ -64,7 +64,85 @@ Dibuat menggunakan:
 3. Jika menggunakan **VS Code**, jalankan melalui ekstensi **Live Server**
 
 
+## ⚙️ Penjelasan Teknis
 
+### Penggunaan `localStorage`
+
+Penggunaan `localStorage` pada aplikasi ini bertujuan untuk **menyimpan data tugas secara lokal di browser**.  
+Data disimpan dalam bentuk **JSON**, sehingga data tetap tersedia meskipun browser ditutup atau halaman direfresh.
+
+`localStorage` hanya dapat menyimpan data bertipe *string*, oleh karena itu data array JavaScript perlu dikonversi terlebih dahulu menggunakan `JSON.stringify()` sebelum disimpan, dan dikembalikan menjadi array menggunakan `JSON.parse()` saat dimuat kembali.
+
+---
+
+#### 🧩 Contoh Kode
+
+```javascript
+export const getTasks = () => JSON.parse(localStorage.getItem('tasks')) || [];
+export const saveTasks = tasks => localStorage.setItem('tasks', JSON.stringify(tasks));
+
+
+##  Validasi Form 
+
+Validasi form dengan **JavaScript** digunakan untuk memastikan data yang dimasukkan oleh pengguna **tidak kosong**, serta **tanggal deadline tidak lebih kecil dari hari ini** sebelum data disimpan ke `localStorage`.  
+Dengan validasi ini, aplikasi menjadi lebih aman dari kesalahan input dan data yang tidak logis.
+
+---
+
+### 🧩 Contoh Kode Validasi
+
+```javascript
+taskForm.addEventListener('submit', e => {
+  e.preventDefault(); // Mencegah halaman reload
+
+  const name = document.getElementById('taskName').value.trim();
+  const course = document.getElementById('taskCourse').value.trim();
+  const deadline = document.getElementById('taskDeadline').value;
+
+  let isValid = true;
+  let message = '';
+
+  // Validasi field kosong
+  if (!name) {
+    isValid = false;
+    message += '- Judul tugas wajib diisi.\n';
+  }
+
+  if (!course) {
+    isValid = false;
+    message += '- Nama mata kuliah wajib diisi.\n';
+  }
+
+  if (!deadline) {
+    isValid = false;
+    message += '- Deadline wajib diisi.\n';
+  }
+
+  // Validasi tanggal deadline
+  if (deadline) {
+    const today = new Date();
+    const selectedDate = new Date(deadline);
+
+    today.setHours(0, 0, 0, 0);
+    selectedDate.setHours(0, 0, 0, 0);
+
+    if (selectedDate < today) {
+      isValid = false;
+      message += '- Tanggal deadline tidak boleh sebelum tanggal hari ini.\n';
+    }
+  }
+
+  // Jika data tidak valid, tampilkan pesan peringatan dan hentikan proses
+  if (!isValid) {
+    alert('Periksa kembali input Anda:\n\n' + message);
+    return;
+  }
+
+  // Jika semua validasi lolos, data disimpan ke localStorage
+  tasks.push({ name, course, deadline, done: false });
+  saveTasks();
+  taskForm.reset();
+});
 
 
 

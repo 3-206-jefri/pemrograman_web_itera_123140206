@@ -77,7 +77,7 @@ Data disimpan dalam bentuk **JSON**, sehingga data tetap tersedia meskipun brows
 
 #### 🧩 Contoh Kode
 
-```bash
+```javascript
 export const getTasks = () => JSON.parse(localStorage.getItem('tasks')) || [];
 export const saveTasks = tasks => localStorage.setItem('tasks', JSON.stringify(tasks));
 ```
@@ -89,7 +89,7 @@ Dengan validasi ini, aplikasi menjadi lebih aman dari kesalahan input dan data y
 
 ---
 
-##  Contoh Kode Validasi
+##  Kode Validasi
 
 ```javascript
 taskForm.addEventListener('submit', e => {
@@ -143,6 +143,21 @@ taskForm.addEventListener('submit', e => {
   saveTasks();
   taskForm.reset();
 });
+
+```
+
+
+| Bagian Kode                                  | Fungsi                                                                                              |
+| -------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `preventDefault()`                           | Mencegah perilaku bawaan form agar tidak me-refresh halaman.                                        |
+| `trim()`                                     | Menghapus spasi di awal dan akhir input agar tidak dianggap sebagai data kosong.                    |
+| Pemeriksaan `if (!name)` dll.                | Mengecek apakah input kosong. Jika iya, `isValid` diset ke `false` dan pesan kesalahan ditambahkan. |
+| Pemeriksaan tanggal (`selectedDate < today`) | Memastikan deadline tidak lebih kecil dari tanggal hari ini.                                        |
+| `alert(message)`                             | Menampilkan pesan kesalahan jika validasi gagal.                                                    |
+| `return`                                     | Menghentikan eksekusi fungsi jika validasi gagal agar data tidak tersimpan.                         |
+| `saveTasks()`                                | Menyimpan data ke `localStorage` jika semua input valid.                                            |
+| `reset()`                                    | Mengosongkan form setelah data berhasil disimpan.                                                   |
+
                                                                                |
 
 

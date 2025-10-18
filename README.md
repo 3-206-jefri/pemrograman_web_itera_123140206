@@ -1,5 +1,24 @@
-3. Buka file `index.html` di browser (Chrome, Edge, Firefox, dll).
-4. Aplikasi langsung dapat digunakan tanpa server tambahan.
+# 📚 Aplikasi Manajemen Tugas Mahasiswa
+
+## 📝 Deskripsi Singkat
+Aplikasi ini membantu mahasiswa mengelola aktivitas akademik mereka seperti mencatat, mengedit, menandai selesai, dan menghapus tugas.  
+Data tersimpan secara **lokal di browser (localStorage)**, sehingga tidak akan hilang meskipun halaman direfresh atau browser ditutup.
+
+Aplikasi ini dibuat menggunakan:
+- **HTML** → struktur halaman
+- **CSS** → desain tampilan
+- **JavaScript** → logika dan interaktivitas pengguna
+
+---
+
+## ⚙️ Cara Menjalankan Aplikasi
+1. Unduh atau clone folder proyek ini.
+2. Pastikan terdapat tiga file utama:
+   index.html
+   style.css
+   script.js
+4. Buka file `index.html` di browser (Chrome, Edge, Firefox, dll).
+5. Aplikasi langsung dapat digunakan tanpa server tambahan.
 
 ---
 

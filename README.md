@@ -50,14 +50,14 @@ Dibuat menggunakan:
 <img width="943" height="459" alt="image" src="https://github.com/user-attachments/assets/3bc316ee-782d-4b9f-8759-3579b2bc34a1" />
 
 
-##Search
+## Search
 <img width="939" height="67" alt="image" src="https://github.com/user-attachments/assets/5a74fcad-cb10-4ffa-b41a-f0c6a52bd4a8" />
 
-##Status
+## Status
 <img width="915" height="286" alt="image" src="https://github.com/user-attachments/assets/790c5fde-84d7-47ab-8c1c-86e4804245f6" />
 
 
-###Cara Menjalankan 
+### Cara Menjalankan 
 1.Download reporsitory Jefri Wahyu Fernando Sembiring_123140206_Tugas 1
 2.Buka Index.html di chrome 
 3.Kalau memakai vs code gunakan ekstension live server

@@ -4,7 +4,7 @@
 ---
 ### Tugas 1
 ##  Deskripsi Singkat
-Aplikasi **Manajemen Tugas Mahasiswa (MTM)** adalah aplikasi berbasis web yang dirancang untuk membantu mahasiswa mengatur dan memantau tugas akademik mereka.  
+Aplikasi Manajemen Tugas Mahasiswa  adalah aplikasi berbasis web yang dirancang untuk membantu mahasiswa mengatur dan memantau tugas akademik mereka.  
 Aplikasi ini bersifat **interaktif**, **fungsional**, dan menyimpan data secara **lokal (localStorage)** sehingga data tetap tersimpan walaupun browser ditutup.
 
 Dibuat menggunakan:

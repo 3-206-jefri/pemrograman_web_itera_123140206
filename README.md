@@ -1,4 +1,4 @@
-> **Tugas Praktikum – Pemrograman Web (ITERA)**  
+> **Tugas Praktikum – Pemrograman Web **  
 > Oleh: **Jefri Wahyu Fernando Sembiring – 123140206 – RC**
 
 ---
@@ -144,6 +144,23 @@ taskForm.addEventListener('submit', e => {
   taskForm.reset();
 });
 
+| Bagian Kode                                                              | Penjelasan                                                                                                                                             |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `taskForm.addEventListener('submit', e => {...})`                        | Menambahkan event listener agar fungsi validasi dijalankan saat tombol **Submit / Tambah Tugas** ditekan.                                              |
+| `e.preventDefault()`                                                     | Mencegah perilaku bawaan form (refresh halaman) agar validasi bisa berjalan terlebih dahulu.                                                           |
+| `document.getElementById(...).value.trim()`                              | Mengambil nilai dari input HTML dan menghapus spasi berlebih di awal/akhir teks.                                                                       |
+| `let isValid = true; let message = '';`                                  | Variabel `isValid` digunakan sebagai indikator apakah semua input valid, sedangkan `message` menyimpan daftar kesalahan untuk ditampilkan ke pengguna. |
+| `if (!name) { ... }`                                                     | Mengecek apakah kolom “Nama Tugas” kosong. Jika kosong, validasi gagal.                                                                                |
+| `if (!course) { ... }`                                                   | Mengecek apakah kolom “Mata Kuliah” kosong.                                                                                                            |
+| `if (!deadline) { ... }`                                                 | Mengecek apakah tanggal deadline diisi atau tidak.                                                                                                     |
+| `const today = new Date()` dan `const selectedDate = new Date(deadline)` | Membuat dua objek tanggal: satu untuk tanggal hari ini dan satu lagi dari input pengguna.                                                              |
+| `today.setHours(0, 0, 0, 0)`                                             | Menyetel jam ke nol agar hanya tanggal yang dibandingkan, bukan waktu.                                                                                 |
+| `if (selectedDate < today)`                                              | Mengecek apakah tanggal yang dipilih lebih kecil dari hari ini (artinya di masa lalu).                                                                 |
+| `alert('Periksa kembali input Anda:\n\n' + message)`                     | Menampilkan pesan kesalahan jika ada input yang tidak valid.                                                                                           |
+| `return`                                                                 | Menghentikan proses agar data tidak tersimpan jika validasi gagal.                                                                                     |
+| `tasks.push({...})`                                                      | Menambahkan data baru ke array `tasks` jika semua input valid.                                                                                         |
+| `saveTasks()`                                                            | Menyimpan data ke `localStorage` agar tetap tersimpan di browser.                                                                                      |
+| `taskForm.reset()`                                                       | Mengosongkan form setelah data berhasil disimpan.                                                                                                      |
 
 
 

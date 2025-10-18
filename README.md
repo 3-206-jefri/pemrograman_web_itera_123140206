@@ -1,52 +1,45 @@
-# 📚 Aplikasi Manajemen Tugas Mahasiswa
-
-## 📝 Deskripsi Singkat
-Aplikasi ini membantu mahasiswa mengelola aktivitas akademik mereka seperti mencatat, mengedit, menandai selesai, dan menghapus tugas.  
-Data tersimpan secara **lokal di browser (localStorage)**, sehingga tidak akan hilang meskipun halaman direfresh atau browser ditutup.
-
-Aplikasi ini dibuat menggunakan:
-- **HTML** → struktur halaman
-- **CSS** → desain tampilan
-- **JavaScript** → logika dan interaktivitas pengguna
+# 🧩 Aplikasi Manajemen Tugas Mahasiswa
+> **Tugas Praktikum – Pemrograman Web (ITERA)**  
+> Oleh: **Jefri Wahyu Fernando Sembiring – 123140206 – RC**
 
 ---
 
-## ⚙️ Cara Menjalankan Aplikasi
-1. Unduh atau clone folder proyek ini.
-2. Pastikan terdapat tiga file utama:
-   index.html
-   style.css
-   script.js
-4. Buka file `index.html` di browser (Chrome, Edge, Firefox, dll).
-5. Aplikasi langsung dapat digunakan tanpa server tambahan.
+## 📘 Deskripsi Singkat
+Aplikasi **Manajemen Tugas Mahasiswa (MTM)** adalah aplikasi berbasis web yang dirancang untuk membantu mahasiswa mengatur dan memantau tugas akademik mereka.  
+Aplikasi ini bersifat **interaktif**, **fungsional**, dan menyimpan data secara **lokal (localStorage)** sehingga data tetap tersimpan walaupun browser ditutup.
+
+Dibuat menggunakan:
+- **HTML5 Semantik** – untuk struktur halaman
+- **CSS3** – untuk tampilan antarmuka
+- **JavaScript (ES6+)** – untuk logika dan interaksi pengguna
 
 ---
 
-## 💡 Fitur-Fitur yang Diimplementasikan
+## ✅ Fitur Utama
 
-| Fitur | Deskripsi |
-|-------|------------|
-| ➕ **Tambah Tugas** | Menambahkan tugas baru dengan nama, mata kuliah, dan deadline |
-| ✏️ **Edit Tugas** | Mengubah nama, mata kuliah, atau deadline tugas |
-| ✅ **Tandai Selesai/Belum** | Mengubah status tugas menjadi selesai atau belum selesai |
-| ❌ **Hapus Tugas** | Menghapus tugas yang tidak diperlukan |
-| 🔍 **Pencarian / Filter** | Mencari tugas berdasarkan nama atau mata kuliah |
-| 📊 **Hitung Jumlah Tugas Belum Selesai** | Menampilkan jumlah tugas yang belum diselesaikan |
-| 💾 **Penyimpanan Lokal (localStorage)** | Menyimpan semua data di browser pengguna |
-| ⚠️ **Validasi Form** | Mencegah input kosong atau deadline tidak valid |
+| No | Fitur | Status | Deskripsi |
+|:--:|:------|:------:|:----------|
+| 1 | **Tambah Tugas Baru** | ✅ | Pengguna dapat menambahkan tugas dengan nama, mata kuliah, dan deadline. |
+| 2 | **Edit Tugas** | ✅ | Mengubah data tugas melalui dialog/prompt. |
+| 3 | **Tandai Selesai / Belum** | ✅ | Mengubah status tugas tanpa menghapus data. |
+| 4 | **Hapus Tugas** | ✅ | Menghapus tugas yang tidak diperlukan. |
+| 5 | **Pencarian & Filter** | ✅ | Menyaring daftar tugas berdasarkan nama atau mata kuliah. |
+| 6 | **Hitung Jumlah Tugas Belum Selesai** | ✅ | Menampilkan total tugas yang belum dikerjakan. |
+| 7 | **Validasi Form** | ✅ | Memastikan semua input valid dan deadline tidak di masa lalu. |
+| 8 | **Penyimpanan Lokal (localStorage)** | ✅ | Semua data disimpan secara permanen di browser pengguna. |
 
 ---
 
 ## 🧠 Penjelasan Teknis
 
-### 1. Penyimpanan Data Menggunakan `localStorage`
-Aplikasi ini menggunakan **localStorage** untuk menyimpan data secara lokal di browser pengguna.  
-Data akan tetap tersimpan meskipun browser ditutup atau halaman direfresh.
+### 🔹 1. Penggunaan `localStorage`
+Data tugas disimpan secara lokal agar tetap tersimpan meski halaman direfresh.
 
-#### Kode penyimpanan:
 ```javascript
-// Menyimpan array tugas ke localStorage
-localStorage.setItem('tasks', JSON.stringify(tasks));
-
-// Mengambil data saat halaman pertama kali dibuka
+// Memuat data dari localStorage
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+// Menyimpan data ke localStorage
+function saveTasks() {
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+}

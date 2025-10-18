@@ -57,10 +57,11 @@ Dibuat menggunakan:
 <img width="915" height="286" alt="image" src="https://github.com/user-attachments/assets/790c5fde-84d7-47ab-8c1c-86e4804245f6" />
 
 
-### Cara Menjalankan 
-1.Download reporsitory Jefri Wahyu Fernando Sembiring_123140206_Tugas 1
-2.Buka Index.html di chrome 
-3.Kalau memakai vs code gunakan ekstension live server
+###  Cara Menjalankan
+
+1. **Download** repository `Jefri Wahyu Fernando Sembiring_123140206_Tugas 1`
+2. **Buka** file `index.html` menggunakan browser (disarankan Google Chrome)
+3. Jika menggunakan **VS Code**, jalankan melalui ekstensi **Live Server**
 
 
 

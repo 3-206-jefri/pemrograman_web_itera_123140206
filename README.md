@@ -1,9 +1,8 @@
-<img width="1215" height="688" alt="image" src="https://github.com/user-attachments/assets/3a9be6c8-f9fd-4364-b354-a7f1448f0d1e" />#  Aplikasi Manajemen Tugas Mahasiswa
 > **Tugas Praktikum – Pemrograman Web (ITERA)**  
 > Oleh: **Jefri Wahyu Fernando Sembiring – 123140206 – RC**
 
 ---
-
+###Tugas 1
 ##  Deskripsi Singkat
 Aplikasi **Manajemen Tugas Mahasiswa (MTM)** adalah aplikasi berbasis web yang dirancang untuk membantu mahasiswa mengatur dan memantau tugas akademik mereka.  
 Aplikasi ini bersifat **interaktif**, **fungsional**, dan menyimpan data secara **lokal (localStorage)** sehingga data tetap tersimpan walaupun browser ditutup.
@@ -49,6 +48,21 @@ Dibuat menggunakan:
 <img width="934" height="409" alt="image" src="https://github.com/user-attachments/assets/b849296a-de4d-4e4d-b846-5b0a5e1fb5d7" />
 
 <img width="943" height="459" alt="image" src="https://github.com/user-attachments/assets/3bc316ee-782d-4b9f-8759-3579b2bc34a1" />
+
+
+##Search
+<img width="939" height="67" alt="image" src="https://github.com/user-attachments/assets/5a74fcad-cb10-4ffa-b41a-f0c6a52bd4a8" />
+
+##Status
+<img width="915" height="286" alt="image" src="https://github.com/user-attachments/assets/790c5fde-84d7-47ab-8c1c-86e4804245f6" />
+
+
+###Cara Menjalankan 
+1.Download reporsitory Jefri Wahyu Fernando Sembiring_123140206_Tugas 1
+2.Buka Index.html di chrome 
+3.Kalau memakai vs code gunakan ekstension live server
+
+
 
 
 

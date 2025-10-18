@@ -1,4 +1,4 @@
-#  Aplikasi Manajemen Tugas Mahasiswa
+<img width="1215" height="688" alt="image" src="https://github.com/user-attachments/assets/3a9be6c8-f9fd-4364-b354-a7f1448f0d1e" />#  Aplikasi Manajemen Tugas Mahasiswa
 > **Tugas Praktikum – Pemrograman Web (ITERA)**  
 > Oleh: **Jefri Wahyu Fernando Sembiring – 123140206 – RC**
 
@@ -30,16 +30,28 @@ Dibuat menggunakan:
 
 ---
 
-## 🧠 Penjelasan Teknis
+## Screenshot
 
-### 🔹 1. Penggunaan `localStorage`
-Data tugas disimpan secara lokal agar tetap tersimpan meski halaman direfresh.
+### UI
+<img width="1215" height="688" alt="image" src="https://github.com/user-attachments/assets/6f67172e-d809-4c91-a73a-4453fe252a96" />
 
-```javascript
-// Memuat data dari localStorage
-let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+##Fitur CRUD Dasar
+<img width="1061" height="644" alt="image" src="https://github.com/user-attachments/assets/33b2039e-a0b2-4f4c-b0f0-c16f55a993a2" />
 
-// Menyimpan data ke localStorage
-function saveTasks() {
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-}
+<img width="1018" height="649" alt="image" src="https://github.com/user-attachments/assets/5ca66d41-5a99-4976-8025-0c8c166b2c65" />
+
+<img width="1064" height="601" alt="image" src="https://github.com/user-attachments/assets/c9f64839-cdc4-42b0-af3a-6f9c0351d002" />
+
+<img width="980" height="626" alt="image" src="https://github.com/user-attachments/assets/35dd34c2-a1ea-4f82-96a4-3e54eb671442" />
+
+### Validation
+
+<img width="934" height="409" alt="image" src="https://github.com/user-attachments/assets/b849296a-de4d-4e4d-b846-5b0a5e1fb5d7" />
+
+<img width="943" height="459" alt="image" src="https://github.com/user-attachments/assets/3bc316ee-782d-4b9f-8759-3579b2bc34a1" />
+
+
+
+
+
+

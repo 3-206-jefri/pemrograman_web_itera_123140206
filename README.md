@@ -89,7 +89,7 @@ Dengan validasi ini, aplikasi menjadi lebih aman dari kesalahan input dan data y
 
 ---
 
-### 🧩 Contoh Kode Validasi
+###  Contoh Kode Validasi
 
 ```javascript
 taskForm.addEventListener('submit', e => {
@@ -143,6 +143,9 @@ taskForm.addEventListener('submit', e => {
   saveTasks();
   taskForm.reset();
 });
+
+
+
 
 
 

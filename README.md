@@ -158,8 +158,6 @@ taskForm.addEventListener('submit', e => {
 | `saveTasks()`                                | Menyimpan data ke `localStorage` jika semua input valid.                                            |
 | `reset()`                                    | Mengosongkan form setelah data berhasil disimpan.                                                   |
 
-                                                                               |
-
 
 
 

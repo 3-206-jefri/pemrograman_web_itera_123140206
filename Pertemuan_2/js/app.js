@@ -1,8 +1,3 @@
-/* app.js - Dasbor Pribadi (Bahasa Indonesia)
-   ✅ ES6+: let/const, arrow function ≥3, template literals, async/await, class
-   ✅ Fitur: tambah/edit/hapus Tugas & Catatan
-   ✅ Penyimpanan lokal: localStorage
-*/
 
 class Penyimpanan {
   constructor(kunci = 'dasbor_pribadi_v1') {
@@ -184,3 +179,4 @@ setInterval(() => jamEl.textContent = new Date().toLocaleString('id-ID'), 1000);
 
 // muat pertama kali
 muat();
+

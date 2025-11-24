@@ -5,15 +5,9 @@ from DVD import DVD
 from Library import Library
 
 def clear_screen():
-    """Membersihkan layar (opsional, bisa di-uncomment jika diperlukan)"""
-    # import os
-    # os.system('cls' if os.name == 'nt' else 'clear')
     print("\n" * 2)
 
 def display_menu():
-    """
-    Menampilkan menu utama aplikasi.
-    """
     print("\n" + "="*80)
     print("SISTEM MANAJEMEN PERPUSTAKAAN".center(80))
     print("="*80)
@@ -30,24 +24,14 @@ def display_menu():
     print("="*80)
 
 def get_input(prompt: str, input_type=str, allow_empty=False):
-    """
-    Helper function untuk mendapatkan input dengan validasi.
     
-    Args:
-        prompt (str): Pesan yang ditampilkan ke user
-        input_type: Tipe data yang diharapkan (str, int, dll)
-        allow_empty (bool): Apakah input kosong diperbolehkan
-        
-    Returns:
-        Input yang sudah divalidasi sesuai tipe
-    """
     while True:
         try:
             user_input = input(prompt).strip()
             
             # Cek jika input kosong
             if not user_input and not allow_empty:
-                print("❌ Input tidak boleh kosong!")
+                print(" Input tidak boleh kosong!")
                 continue
             
             # Konversi ke tipe yang diinginkan
@@ -57,18 +41,12 @@ def get_input(prompt: str, input_type=str, allow_empty=False):
                 return user_input
                 
         except ValueError:
-            print(f"❌ Input harus berupa {input_type.__name__}!")
+            print(f" Input harus berupa {input_type.__name__}!")
         except KeyboardInterrupt:
-            print("\n\n❌ Program dibatalkan.")
+            print("\n\n Program dibatalkan.")
             exit()
 
 def add_book(library: Library):
-    """
-    Function untuk menambahkan buku melalui input user.
-    
-    Args:
-        library (Library): Object perpustakaan tempat buku akan ditambahkan
-    """
     print("\n" + "-"*80)
     print("TAMBAH BUKU BARU".center(80))
     print("-"*80)
@@ -84,12 +62,7 @@ def add_book(library: Library):
     library.add_item(book)
 
 def add_magazine(library: Library):
-    """
-    Function untuk menambahkan majalah melalui input user.
-    
-    Args:
-        library (Library): Object perpustakaan tempat majalah akan ditambahkan
-    """
+ 
     print("\n" + "-"*80)
     print("TAMBAH MAJALAH BARU".center(80))
     print("-"*80)
@@ -105,12 +78,7 @@ def add_magazine(library: Library):
     library.add_item(magazine)
 
 def add_dvd(library: Library):
-    """
-    Function untuk menambahkan DVD melalui input user.
-    
-    Args:
-        library (Library): Object perpustakaan tempat DVD akan ditambahkan
-    """
+ 
     print("\n" + "-"*80)
     print("TAMBAH DVD BARU".center(80))
     print("-"*80)
@@ -126,12 +94,7 @@ def add_dvd(library: Library):
     library.add_item(dvd)
 
 def search_by_title_menu(library: Library):
-    """
-    Function untuk mencari item berdasarkan judul melalui input user.
     
-    Args:
-        library (Library): Object perpustakaan tempat pencarian dilakukan
-    """
     print("\n" + "-"*80)
     print("PENCARIAN BERDASARKAN JUDUL".center(80))
     print("-"*80)
@@ -140,12 +103,7 @@ def search_by_title_menu(library: Library):
     library.search_by_title(title)
 
 def search_by_id_menu(library: Library):
-    """
-    Function untuk mencari item berdasarkan ID melalui input user.
-    
-    Args:
-        library (Library): Object perpustakaan tempat pencarian dilakukan
-    """
+   
     print("\n" + "-"*80)
     print("PENCARIAN BERDASARKAN ID".center(80))
     print("-"*80)
@@ -154,12 +112,7 @@ def search_by_id_menu(library: Library):
     library.search_by_id(item_id)
 
 def borrow_item_menu(library: Library):
-    """
-    Function untuk meminjam item melalui input user.
-    
-    Args:
-        library (Library): Object perpustakaan tempat peminjaman dilakukan
-    """
+  
     print("\n" + "-"*80)
     print("PINJAM ITEM".center(80))
     print("-"*80)
@@ -168,12 +121,7 @@ def borrow_item_menu(library: Library):
     library.borrow_item(item_id)
 
 def return_item_menu(library: Library):
-    """
-    Function untuk mengembalikan item melalui input user.
-    
-    Args:
-        library (Library): Object perpustakaan tempat pengembalian dilakukan
-    """
+   
     print("\n" + "-"*80)
     print("KEMBALIKAN ITEM".center(80))
     print("-"*80)
@@ -182,13 +130,7 @@ def return_item_menu(library: Library):
     library.return_item(item_id)
 
 def main():
-    """
-    Fungsi utama yang menjalankan program dengan menu interaktif.
-    
-    Program akan terus berjalan sampai user memilih untuk keluar.
-    Semua operasi dilakukan secara dinamis berdasarkan input user.
-    """
-    
+   
     # Inisialisasi perpustakaan
     print("\n" + "="*80)
     print("SELAMAT DATANG DI SISTEM MANAJEMEN PERPUSTAKAAN".center(80))
@@ -197,7 +139,7 @@ def main():
     library_name = get_input("\nMasukkan nama perpustakaan: ")
     library = Library(library_name)
     
-    print(f"\n✅ Perpustakaan '{library.name}' berhasil dibuat!")
+    print(f"\n Perpustakaan '{library.name}' berhasil dibuat!")
     
     # Loop menu utama
     while True:
@@ -230,7 +172,7 @@ def main():
                 print("="*80)
                 break
             else:
-                print("\n❌ Pilihan tidak valid! Silakan pilih menu 0-9.")
+                print("\n Pilihan tidak valid! Silakan pilih menu 0-9.")
             
             # Pause sebelum kembali ke menu
             input("\nTekan Enter untuk melanjutkan...")
@@ -241,15 +183,10 @@ def main():
             print("="*80)
             break
         except Exception as e:
-            print(f"\n❌ Terjadi error: {e}")
+            print(f"\n Terjadi error: {e}")
             input("\nTekan Enter untuk melanjutkan...")
 
 
 # ========== ENTRY POINT ==========
 if __name__ == "__main__":
-    """
-    Entry point program.
-    Code di dalam blok ini hanya dijalankan jika file ini dijalankan langsung,
-    tidak ketika di-import sebagai module.
-    """
     main()

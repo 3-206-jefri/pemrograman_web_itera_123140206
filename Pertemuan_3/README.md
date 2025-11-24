@@ -9,10 +9,11 @@ dari masing masing kategori tersebut.
 
 ### CRUD (Create , Read , Update , Delete)
 Di dalam website ini memiliki fitur CRUD dimana di antaranya 
-- **Tambah Buku Baru**
+- ### **Tambah Buku Baru**
 
 Pada fitur tambah buku baru , disini pengguna artinya memasukkan buku baru yang dimana parameternya berupa judul buku ,
 penulis , dan statusnya.
+
 <img width="509" height="448" alt="image" src="https://github.com/user-attachments/assets/7fbf90a5-0dc2-4763-a859-a8260f00b904" />
 
 

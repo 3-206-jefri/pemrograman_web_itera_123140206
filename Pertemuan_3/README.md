@@ -5,6 +5,12 @@ dari masing masing kategori tersebut.
 <img width="1919" height="749" alt="image" src="https://github.com/user-attachments/assets/6be3b126-36be-4b59-b3ef-150e000c44d5" />
 <img width="1919" height="879" alt="image" src="https://github.com/user-attachments/assets/59762530-afa2-4243-958d-2661392796be" />
 
+## Cara Menjalankan Web
+- Download & Install React  + Vite terelebih dahulu
+- Clone Reporsitory ini atau download reporsitory.
+- Masuk Ke Directory dimana repo ini berada
+- Lalu buka terminal dan jalankan `npm run dev`
+
 ## Fitur Fitur
 
 ### CRUD (Create , Read , Update , Delete)

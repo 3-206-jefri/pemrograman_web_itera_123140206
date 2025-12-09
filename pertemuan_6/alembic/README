@@ -1,0 +1,149 @@
+# API Manajemen Matakuliah
+
+Aplikasi REST API sederhana untuk CRUD data matakuliah menggunakan Pyramid Framework.
+
+## Instalasi
+
+```bash
+# 1. Aktivasi virtual environment
+venv\Scripts\activate
+
+# 2. Install dependencies
+pip install pyramid sqlalchemy alembic waitress pyramid-tm zope.sqlalchemy
+
+# 3. Setup database
+alembic init alembic
+# Edit alembic.ini: sqlalchemy.url = sqlite:///matakuliah.db
+# Edit alembic/env.py: tambah import models dan set target_metadata
+
+# 4. Jalankan migration
+alembic revision --autogenerate -m "create matakuliah table"
+alembic upgrade head
+
+# 5. Insert data awal
+python insert_data.py
+```
+
+## Cara Menjalankan
+
+```bash
+python app.py
+```
+
+Server berjalan di: **http://localhost:6543**
+
+## API Endpoints
+
+| Method | Endpoint | Deskripsi |
+|--------|----------|-----------|
+| GET | `/` | Info API |
+| GET | `/api/matakuliah` | Ambil semua matakuliah |
+| GET | `/api/matakuliah/{id}` | Ambil satu matakuliah |
+| POST | `/api/matakuliah` | Tambah matakuliah baru |
+| PUT | `/api/matakuliah/{id}` | Update matakuliah |
+| DELETE | `/api/matakuliah/{id}` | Hapus matakuliah |
+
+## Contoh Request
+
+### 1. GET All Matakuliah
+```bash
+curl http://localhost:6543/api/matakuliah
+```
+
+**Response:**
+```json
+{
+  "status": "success",
+  "matakuliahs": [
+    {
+      "id": 1,
+      "kode_mk": "IF101",
+      "nama_mk": "Algoritma dan Pemrograman",
+      "sks": 3,
+      "semester": 1
+    }
+  ]
+}
+```
+
+### 2. POST Create Matakuliah
+```bash
+curl -X POST http://localhost:6543/api/matakuliah -H "Content-Type: application/json" -d "{\"kode_mk\":\"IF301\",\"nama_mk\":\"Pemrograman Web\",\"sks\":3,\"semester\":5}"
+```
+
+**Response:**
+```json
+{
+  "status": "success",
+  "message": "Matakuliah berhasil ditambahkan",
+  "matakuliah": {
+    "id": 4,
+    "kode_mk": "IF301",
+    "nama_mk": "Pemrograman Web",
+    "sks": 3,
+    "semester": 5
+  }
+}
+```
+
+### 3. PUT Update Matakuliah
+```bash
+curl -X PUT http://localhost:6543/api/matakuliah/1 -H "Content-Type: application/json" -d "{\"nama_mk\":\"Algoritma Lanjut\",\"sks\":4}"
+```
+
+### 4. DELETE Matakuliah
+```bash
+curl -X DELETE http://localhost:6543/api/matakuliah/4
+```
+
+## Testing dengan Browser
+
+Buka browser dan akses:
+- **Home:** http://localhost:6543/
+- **Get All:** http://localhost:6543/api/matakuliah
+- **Get Single:** http://localhost:6543/api/matakuliah/1
+
+## Screenshot Aplikasi
+
+### 1. Server Running
+![Server Running](screenshots/01-server-running.png)
+
+### 2. Home Endpoint
+![Home](screenshots/02-home.png)
+
+### 3. GET All Matakuliah
+![GET All](screenshots/03-get-all.png)
+
+### 4. GET Single Matakuliah
+![GET Single](screenshots/04-get-single.png)
+
+### 5. POST Create Matakuliah
+![POST Create](screenshots/05-post-create.png)
+
+### 6. PUT Update Matakuliah
+![PUT Update](screenshots/06-put-update.png)
+
+### 7. DELETE Matakuliah
+![DELETE](screenshots/07-delete.png)
+
+## Struktur Database
+
+**Tabel: matakuliah**
+
+| Kolom | Tipe | Constraint |
+|-------|------|------------|
+| id | Integer | Primary Key, Auto Increment |
+| kode_mk | Text | Unique, Not Null |
+| nama_mk | Text | Not Null |
+| sks | Integer | Not Null |
+| semester | Integer | Not Null |
+
+## Troubleshooting
+
+- **ModuleNotFoundError:** Install dependencies dengan `pip install`
+- **Port sudah digunakan:** Ganti port di `app.py` baris `serve(app, port=6543)`
+- **Database locked:** Restart server dengan Ctrl+C lalu jalankan lagi
+
+---
+
+**Dibuat untuk Praktikum Pemrograman Web** 🚀

@@ -2,85 +2,119 @@
 
 ## Deskripsi Proyek
 
-API sederhana untuk manajemen data matakuliah menggunakan Pyramid (web framework), SQLAlchemy (ORM), dan SQLite.
+Proyek ini merupakan **API sederhana** untuk manajemen data matakuliah yang dibuat menggunakan **Pyramid (web framework)**, **SQLAlchemy (ORM)**, dan **SQLite**.
 
-Fitur:
-- CRUD untuk entitas `Matakuliah` (id, kode_mk, nama_mk, sks, semester)
+Aplikasi ini dikembangkan sebagai bagian dari tugas praktikum backend dengan tujuan memahami konsep **REST API**, **CRUD**, **ORM**, dan **manajemen database**.
+
+### Fitur Utama
+
+* CRUD (Create, Read, Update, Delete) untuk entitas `Matakuliah`
+* Data matakuliah terdiri dari:
+
+  * `id`
+  * `kode_mk`
+  * `nama_mk`
+  * `sks`
+  * `semester`
+
+---
 
 ## Cara Instalasi
 
-1. Buat virtual environment dan aktifkan (direkomendasikan):
+### 1. Membuat dan Mengaktifkan Virtual Environment (Direkomendasikan)
 
 ```powershell
 python -m venv .venv
 .venv\Scripts\activate
 ```
 
-2. Instal dependensi:
+### 2. Menginstal Dependensi
 
 ```powershell
 pip install -r requirements.txt
-# Jika ada paket yang belum tercantum, pasang manual:
+
+# Jika terdapat paket yang belum tercantum
 pip install pyramid_tm zope.sqlalchemy
 ```
 
-3. Verifikasi interpreter (opsional):
+### 3. Verifikasi Interpreter (Opsional)
 
 ```powershell
 python --version
 where python
 ```
 
+---
+
 ## Konfigurasi Database
 
-- Default: SQLite file `matakuliah.db` di folder `pertemuan_6`.
-- Skema tabel dibuat otomatis melalui `init_db()` yang dipanggil saat aplikasi mulai atau lewat `seed_db.py`.
+* Database default menggunakan **SQLite** dengan file `matakuliah.db`
+* Lokasi database berada di folder `pertemuan_6`
+* Skema tabel dibuat otomatis melalui fungsi `init_db()`
+* Data awal dapat ditambahkan menggunakan script `seed_db.py`
 
-Jika ingin menggunakan Alembic (migrasi), lihat bagian Migrasi di bawah.
+---
 
 ## Migrasi Database (Alembic)
 
-Direktori `alembic/` dan `alembic.ini` tersedia. Contoh perintah:
+Project ini telah disiapkan untuk mendukung migrasi database menggunakan **Alembic**.
+
+Direktori `alembic/` dan file `alembic.ini` sudah tersedia.
+
+Contoh perintah migrasi:
 
 ```powershell
-# Buat revision otomatis (setelah mengubah model)
+# Membuat revision otomatis setelah perubahan model
 alembic revision --autogenerate -m "create matakuliah"
 
-# Terapkan migration ke head
+# Menerapkan migrasi ke database
 alembic upgrade head
 ```
 
-Pastikan `alembic.ini` dan env mengarah ke database yang sama.
+Pastikan konfigurasi database pada `alembic.ini` sesuai dengan database yang digunakan aplikasi.
 
-## Cara Menjalankan
+---
 
-1. Tambahkan data awal (seed) — hanya jika tabel kosong:
+## Cara Menjalankan Aplikasi
+
+### 1. Menambahkan Data Awal (Seed Database)
+
+Jalankan perintah berikut **hanya jika tabel masih kosong**:
 
 ```powershell
 python seed_db.py
 ```
 
-2. Jalankan server:
+### 2. Menjalankan Server
 
 ```powershell
 python app.py
 ```
 
-Server akan tersedia di: `http://localhost:6543`
+Aplikasi akan berjalan pada alamat:
+
+```
+http://localhost:6543
+```
+
+---
 
 ## API Endpoints
 
-Semua response berformat JSON.
+Semua endpoint mengembalikan response dalam format **JSON**.
 
-1) Get All Matakuliah
-- Method: `GET`
-- URL: `/api/matakuliah`
-- Contoh request:
+### 1. Get All Matakuliah
+
+* **Method:** `GET`
+* **URL:** `/api/matakuliah`
+
+Contoh request:
 
 ```bash
 curl -X GET http://localhost:6543/api/matakuliah
 ```
-- Contoh response (200):
+
+Contoh response (200):
 
 ```json
 {
@@ -97,148 +131,86 @@ curl -X GET http://localhost:6543/api/matakuliah
 }
 ```
 
-2) Get Single Matakuliah
-- Method: `GET`
-- URL: `/api/matakuliah/{id}`
-- Contoh request:
+---
+
+### 2. Get Single Matakuliah
+
+* **Method:** `GET`
+* **URL:** `/api/matakuliah/{id}`
 
 ```bash
 curl -X GET http://localhost:6543/api/matakuliah/1
 ```
-- Contoh response (200):
 
-```json
-{
-  "status": "success",
-  "matakuliah": {
-    "id": 1,
-    "kode_mk": "IF101",
-    "nama_mk": "Algoritma dan Pemrograman",
-    "sks": 3,
-    "semester": 1
-  }
-}
-```
+---
 
-3) Create Matakuliah
-- Method: `POST`
-- URL: `/api/matakuliah`
-- Body (JSON): `kode_mk`, `nama_mk`, `sks`, `semester` (semua wajib)
-- Contoh request:
+### 3. Create Matakuliah
+
+* **Method:** `POST`
+* **URL:** `/api/matakuliah`
+* **Body:** `kode_mk`, `nama_mk`, `sks`, `semester` (wajib)
 
 ```bash
-curl -X POST http://localhost:6543/api/matakuliah -H "Content-Type: application/json" -d '{"kode_mk":"IF301","nama_mk":"Pemrograman Web","sks":3,"semester":5}'
-```
-- Contoh response (201):
-
-```json
-{
-  "status": "success",
-  "message": "Matakuliah berhasil ditambahkan",
-  "matakuliah": {
-    "id": 4,
-    "kode_mk": "IF301",
-    "nama_mk": "Pemrograman Web",
-    "sks": 3,
-    "semester": 5
-  }
-}
+curl -X POST http://localhost:6543/api/matakuliah \
+-H "Content-Type: application/json" \
+-d '{"kode_mk":"IF301","nama_mk":"Pemrograman Web","sks":3,"semester":5}'
 ```
 
-4) Update Matakuliah
-- Method: `PUT`
-- URL: `/api/matakuliah/{id}`
-- Body: salah satu atau beberapa field untuk diupdate
-- Contoh request:
+---
+
+### 4. Update Matakuliah
+
+* **Method:** `PUT`
+* **URL:** `/api/matakuliah/{id}`
 
 ```bash
-curl -X PUT http://localhost:6543/api/matakuliah/1 -H "Content-Type: application/json" -d '{"nama_mk":"Algoritma Lanjut"}'
-```
-- Contoh response (200):
-
-```json
-{
-  "status": "success",
-  "message": "Matakuliah berhasil diupdate",
-  "matakuliah": {
-    "id": 1,
-    "kode_mk": "IF101",
-    "nama_mk": "Algoritma Lanjut",
-    "sks": 3,
-    "semester": 1
-  }
-}
+curl -X PUT http://localhost:6543/api/matakuliah/1 \
+-H "Content-Type: application/json" \
+-d '{"nama_mk":"Algoritma Lanjut"}'
 ```
 
-5) Delete Matakuliah
-- Method: `DELETE`
-- URL: `/api/matakuliah/{id}`
-- Contoh request:
+---
+
+### 5. Delete Matakuliah
+
+* **Method:** `DELETE`
+* **URL:** `/api/matakuliah/{id}`
 
 ```bash
 curl -X DELETE http://localhost:6543/api/matakuliah/1
 ```
-- Contoh response (200):
 
-```json
-{
-  "status": "success",
-  "message": "Matakuliah berhasil dihapus"
-}
-```
+---
 
-## Testing
+## Testing API
 
-**Menggunakan `curl.exe` (Windows Git Bash atau WSL):**
+### Menggunakan `curl.exe` (Windows / Git Bash)
 
 ```powershell
-# 1. Pastikan server berjalan
 curl.exe -X GET http://localhost:6543/api/matakuliah
-
-# 2. Tambah data baru
-curl.exe -X POST http://localhost:6543/api/matakuliah -H "Content-Type: application/json" -d '{"kode_mk":"IF401","nama_mk":"Jaringan Komputer","sks":3,"semester":6}'
-
-# 3. Update (ganti id sesuai hasil create)
-curl.exe -X PUT http://localhost:6543/api/matakuliah/4 -H "Content-Type: application/json" -d '{"nama_mk":"Jaringan Lanjut"}'
-
-# 4. Hapus
-curl.exe -X DELETE http://localhost:6543/api/matakuliah/4
 ```
 
-**Alternatif: Menggunakan PowerShell `Invoke-WebRequest`:**
+### Menggunakan PowerShell (`Invoke-WebRequest`)
 
 ```powershell
-# 1. Get all
 Invoke-WebRequest -Uri http://localhost:6543/api/matakuliah -Method GET
-
-# 2. Create
-$body = @{
-    kode_mk = "IF401"
-    nama_mk = "Jaringan Komputer"
-    sks = 3
-    semester = 6
-} | ConvertTo-Json
-
-Invoke-WebRequest -Uri http://localhost:6543/api/matakuliah `
-  -Method POST `
-  -Headers @{"Content-Type" = "application/json"} `
-  -Body $body
-
-# 3. Update
-$body = @{nama_mk = "Jaringan Lanjut"} | ConvertTo-Json
-Invoke-WebRequest -Uri http://localhost:6543/api/matakuliah/4 `
-  -Method PUT `
-  -Headers @{"Content-Type" = "application/json"} `
-  -Body $body
-
-# 4. Delete
-Invoke-WebRequest -Uri http://localhost:6543/api/matakuliah/4 -Method DELETE
 ```
 
-## File penting
+---
 
-- Entry point & semua views: [pertemuan_6/app.py](pertemuan_6/app.py) - semua endpoint view functions ada di sini
-- Model: [pertemuan_6/models.py](pertemuan_6/models.py)
-- Database config: [pertemuan_6/database.py](pertemuan_6/database.py)
-- Seed script: [pertemuan_6/seed_db.py](pertemuan_6/seed_db.py)
-- Alembic config: [pertemuan_6/alembic.ini](pertemuan_6/alembic.ini)
+## File Penting
+
+* **Entry Point & Views:** `pertemuan_6/app.py`
+* **Model Database:** `pertemuan_6/models.py`
+* **Konfigurasi Database:** `pertemuan_6/database.py`
+* **Seed Database:** `pertemuan_6/seed_db.py`
+* **Konfigurasi Alembic:** `pertemuan_6/alembic.ini`
+
+---
+
+## Catatan Penting
+
+* Pastikan virtual environment aktif sebelum menjalankan aplikasi
+* Jalankan `seed_db.py` hanya satu kali
+* Port default aplikasi adalah **6543**
+* Penamaan `matakuliahs` mengikuti konvensi internal API

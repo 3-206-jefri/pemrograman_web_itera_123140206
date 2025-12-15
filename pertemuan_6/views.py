@@ -1,6 +1,6 @@
 from pyramid.view import view_config
 from pyramid.response import Response
-from .models import Matakuliah
+from models import Matakuliah
 import json
 
 @view_config(route_name='get_all_matakuliah', renderer='json')
